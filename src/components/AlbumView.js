@@ -7,13 +7,12 @@ export default props => {
   const [album, setAlbum] = useState({})
   const [photos, setPhotos] = useState([])
   const [albumList, setAlbumList] = useState([])
+
   useEffect(() => {
     getAlbumList().then(e => {
-      console.log(e)
       setAlbumList(e)
     })
     getAlbum(props.match.params.id).then(a => {
-      // console.log(a)
       setAlbum(a)
       setPhotos(a.photos)
     })
